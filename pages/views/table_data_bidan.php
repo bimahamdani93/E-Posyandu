@@ -51,52 +51,91 @@ $no = 1;
                         <th scope="col" class="px-6 py-3">
                             Jenis Kelamin
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <?php if ($_SESSION['level'] == 'Admin')  
+                        echo '<th scope="col" class="px-6 py-3">
                             Aksi
-                        </th>
-
+                        </th>'
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($data = $query->fetch_array()) : ?>
+                    <?php if ($_SESSION['level'] == 'Admin') while ($data = $query->fetch_array()) : ?>
 
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                <?php echo $no++ ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['nama_bidan'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['nip'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['umur'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['no_telepon'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['lokasi_dinas'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['pengalaman_kerja'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['jenis_kelamin'] ?>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <p>
-                                    <a href="?url=ubah-data-bidan&id=<?= $data['id_bidan']; ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">
+                            <?php echo $no++ ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['nama_bidan'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['nip'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['umur'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['no_telepon'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['lokasi_dinas'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['pengalaman_kerja'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['jenis_kelamin'] ?>
+                        </td>
 
-                                    <a href="actions/hapus_bidan.php?id=<?= $data['id_bidan']; ?>" onclick="return confirm('Apakah anda yakin menghapus data?');" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
+                        <td class="px-6 py-4">
+                            <p>
+                                <a href="?url=ubah-data-bidan&id=<?= $data['id_bidan']; ?>"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <a href="actions/hapus_bidan.php?id=<?= $data['id_bidan']; ?>"
+                                    onclick="return confirm('Apakah anda yakin menghapus data?');"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </p>
+                        </td>
+
+                    </tr>
+
+                    <?php endwhile ?>
+                    <?php if ($_SESSION['level'] == 'Pengguna') while ($data = $query->fetch_array()) : ?>
+
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">
+                            <?php echo $no++ ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['nama_bidan'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['nip'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['umur'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['no_telepon'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['lokasi_dinas'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['pengalaman_kerja'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['jenis_kelamin'] ?>
+                        </td>
+
+
+                    </tr>
+
                     <?php endwhile ?>
 
 

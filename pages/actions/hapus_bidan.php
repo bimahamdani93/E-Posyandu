@@ -3,7 +3,6 @@ require 'function_bidan.php';
 
 $id = $_GET["id"];
 
-
 if (hapus($id) == true) {
     echo    "<script>
                     alert('Data Bidan Berhasil di Hapus');

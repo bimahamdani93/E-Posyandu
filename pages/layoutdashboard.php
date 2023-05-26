@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
         <div class="flex items-start justify-between">
             <div class="h-screen hidden lg:block shadow-lg relative w-80">

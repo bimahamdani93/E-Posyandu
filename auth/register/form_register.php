@@ -74,7 +74,7 @@
 
                             <div class="flex items-center justify-center mt-6">
                                 <span class="ml-2">
-                                    <p class="text-gray-500">already have an account? <a href="../login/form_login.php"> login</a></p>
+                                    <p class="text-gray-500">already have an account? <a href="../../start.php"> login</a></p>
                                 </span>
                             </div>
                         </form>

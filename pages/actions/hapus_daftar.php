@@ -3,7 +3,6 @@ require 'function_daftar.php';
 
 $id = $_GET["id"];
 
-
 if (hapus($id) == true) {
     echo    "<script>
                     alert('Data Pendaftaran Berhasil di Hapus');

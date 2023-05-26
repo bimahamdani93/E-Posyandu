@@ -11,20 +11,17 @@ function tambah($data)
     $pengalaman_kerja = $data['pengalaman_kerja'];
     $jk = $data['jk'];
 
-
     $sql = "INSERT INTO tb_bidan (nama_bidan,nip,umur,no_telepon,lokasi_dinas,pengalaman_kerja,jenis_kelamin) values ('$nama','$nip','$umur','$notelp','$lokasi_dinas','$pengalaman_kerja','$jk')";
     $query = $koneksi->query($sql);
 
-
     return $query;
 }
-
 
 function hapus($id)
 {
     include '../../koneksi/koneksi.php';
 
-    $sql = "DELETE FROM tb_jadwal_imunisasi WHERE id_jadwal = '$id'";
+    $sql = "DELETE FROM tb_bidan WHERE id_bidan = '$id'";
     $query = $koneksi->query($sql);
 
     return $query;
@@ -44,7 +41,6 @@ function query($query)
     return $rows;
 }
 
-
 function ubah($data)
 {
     include '../koneksi/koneksi.php';
@@ -57,7 +53,6 @@ function ubah($data)
     $pengalaman_kerja = $data['pengalaman_kerja'];
     $jk = $data['jk'];
 
-
     $sql = "UPDATE tb_bidan SET
      nama_bidan = '$nama',
      nip = '$nip',
@@ -69,7 +64,6 @@ function ubah($data)
      WHERE id_bidan = $id
      ";
     $query = $koneksi->query($sql);
-
 
     return $query;
 }

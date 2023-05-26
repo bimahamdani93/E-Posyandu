@@ -21,7 +21,7 @@
             <div class="w-full max-w-lg">
                 <div class="leading-loose">
                     <div class="mt-8">
-                        <form action="act_login.php?op=in" method="POST" class="max-w-sm p-10 m-auto bg-white bg-opacity-25 rounded shadow-xl">
+                        <form action="auth/login/act_login.php?op=in" method="POST" class="max-w-sm p-10 m-auto bg-white bg-opacity-25 rounded shadow-xl">
                             <div class=" text-center self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
                                 <p class="font-semibold">Login</p>
                             </div>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="flex items-center justify-center mt-6">
                                 <span class="ml-2">
-                                    <p class="text-gray-500">don't have any account? <a href="../register/form_register.php">register</a></p>
+                                    <p class="text-gray-500">don't have any account? <a href="auth/register/form_register.php">register</a></p>
                                 </span>
                             </div>
                         </form>

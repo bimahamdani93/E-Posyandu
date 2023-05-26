@@ -3,7 +3,6 @@ require 'function_restock.php';
 
 $id = $_GET["id"];
 
-
 if (hapus($id) == true) {
     echo    "<script>
                     alert('Data pembelian Berhasil di Hapus');

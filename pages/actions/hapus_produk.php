@@ -3,7 +3,6 @@ require 'function_produk.php';
 
 $id = $_GET["id"];
 
-
 if (hapus($id) == true) {
     echo    "<script>
                     alert('Produk Berhasil di Hapus');

@@ -3,7 +3,6 @@ require 'function_jadwal.php';
 
 $id = $_GET["id"];
 
-
 if (hapus($id) == true) {
     echo    "<script>
                     alert('Jadwal Berhasil di Hapus');

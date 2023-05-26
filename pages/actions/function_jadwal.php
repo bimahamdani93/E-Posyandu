@@ -11,12 +11,9 @@ function tambah($data)
     $jam = $data['jam'];
     $kuota = $data['kuota'];
 
-
-
     $sql = "INSERT INTO tb_jadwal_imunisasi (id_bidan,id_kategori,hari,tanggal,jam,kuota) 
     values ('$id_bidan','$id_kategori','$hari','$tanggal','$jam','$kuota')";
     $query = $koneksi->query($sql);
-
 
     return $query;
 }

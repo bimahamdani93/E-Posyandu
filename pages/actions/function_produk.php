@@ -8,11 +8,9 @@ function tambah($data)
     $stok = $data['stok'];
     $jenis = $data['jenis'];
 
-
     $sql = "INSERT INTO tb_produk (id_jenis,merk,harga,stok) 
     values ('$jenis','$merk','$harga','$stok')";
     $query = $koneksi->query($sql);
-
 
     return $query;
 }
@@ -59,7 +57,6 @@ function ubah($data)
      id_jenis = '$jenis' WHERE id_produk = $id
      ";
     $query = $koneksi->query($sql);
-
 
     return $query;
 }

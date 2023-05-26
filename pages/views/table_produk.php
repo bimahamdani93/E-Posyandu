@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-
 include "../koneksi/koneksi.php";
 $sql = "SELECT * FROM tb_produk INNER JOIN tb_jenis_produk WHERE tb_produk.id_jenis = tb_jenis_produk.id_jenis";
 $query = $koneksi->query($sql);
 $no = 1;
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -42,46 +42,65 @@ $no = 1;
                         <th scope="col" class="px-6 py-3">
                             Stok
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <?php if ($_SESSION['level'] == 'Admin')  
+                        echo '<th scope="col" class="px-6 py-3">
                             Aksi
-                        </th>
-
+                        </th>'
+                        ?>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($data = $query->fetch_array()) : ?>
-
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                <?php echo $no++ ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['jenis'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['merk'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['harga'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['stok'] ?>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <p>
-                                    <a href="?url=ubah-produk&id=<?= $data['id_produk']; ?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-
-                                    <a href="actions/hapus_produk.php?id=<?= $data['id_produk']; ?>" onclick="return confirm('Apakah anda yakin menghapus data?');" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
+                    <?php if ($_SESSION['level'] == 'Admin') while ($data = $query->fetch_array()) : ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">
+                            <?php echo $no++ ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['jenis'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['merk'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['harga'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['stok'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <p>
+                                <a href="?url=ubah-produk&id=<?= $data['id_produk']; ?>"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="actions/hapus_produk.php?id=<?= $data['id_produk']; ?>"
+                                    onclick="return confirm('Apakah anda yakin menghapus data?');"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
                     <?php endwhile ?>
-
-
+                    <?php if ($_SESSION['level'] == 'Pengguna') while ($data = $query->fetch_array()) : ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">
+                            <?php echo $no++ ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['jenis'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['merk'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['harga'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['stok'] ?>
+                        </td>
+                    </tr>
+                    <?php endwhile ?>
                 </tbody>
             </table>
         </div>

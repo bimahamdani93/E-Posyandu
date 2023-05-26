@@ -17,16 +17,16 @@ if ($op == "in") {
             header("location:../../pages/layoutdashboard.php?url=beranda");
         } else if ($data['level'] == "Pengguna") {
             header("location:../../pages/layoutdashboard.php?url=beranda");
-        } else {
-            echo "<script>
-                    alert('Login Gagal, Username atau Password Salah!!!');
-                    window.location.href = ('form_login.php');
-                </script>";
         }
+    } else {
+        echo "<script>
+                    alert('Login Gagal, Username atau Password Salah!!!');
+                    window.location.href = ('../../start.php');
+             </script>";
     }
 } else if ($op == "out") {
     unset($_SESSION['id_user']);
     unset($_SESSION['username']);
     unset($_SESSION['level']);
-    header("location:formlogin.php");
+    header("location:../../start.php");
 }

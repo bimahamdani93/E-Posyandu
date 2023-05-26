@@ -3,7 +3,6 @@ require 'function_anak.php';
 
 $id = $_GET["id"];
 
-
 if (hapus($id) == true) {
     echo    "<script>
                     alert('Data Anak Berhasil di Hapus');

@@ -3,9 +3,12 @@
 <?php
 
 include "../koneksi/koneksi.php";
-$sql = "SELECT tb_pembelian.waktu, tb_pembelian.jumlah, tb_pembelian.id_pembelian, tb_produk.merk, tb_produk.harga, tb_jenis_produk.jenis FROM tb_pembelian JOIN tb_produk ON tb_pembelian.id_produk= tb_produk.id_produk JOIN tb_jenis_produk ON tb_produk.id_jenis = tb_jenis_produk.id_jenis";
+$sql = "SELECT tb_pembelian.waktu, tb_pembelian.jumlah, tb_pembelian.id_pembelian, tb_produk.merk, 
+tb_produk.harga, tb_jenis_produk.jenis FROM tb_pembelian JOIN tb_produk ON tb_pembelian.id_produk= 
+tb_produk.id_produk JOIN tb_jenis_produk ON tb_produk.id_jenis = tb_jenis_produk.id_jenis";
 $query = $koneksi->query($sql);
 $no = 1;
+
 ?>
 
 <head>
@@ -21,7 +24,7 @@ $no = 1;
 <body>
     <div class="w-full p-8 z-40 bg-white items-center rounded-md">
         <div class="flex items-center justify-start pt-4 mb-6 pb-4 bg-cyan-200">
-            <p class="font-bold dark:text-white text-xl mx-auto">Data Produk</p>
+            <p class="font-bold dark:text-white text-xl mx-auto">Data Pembelian</p>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -48,41 +51,40 @@ $no = 1;
                         <th scope="col" class="px-6 py-3">
                             Aksi
                         </th>
-
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($data = $query->fetch_array()) : ?>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                <?php echo $no++ ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['waktu'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['jumlah'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['merk'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['harga'] ?>
-                            </td>
-                            <td class="px-6 py-4">
-                                <?php echo $data['jenis'] ?>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <p>
-                                    <a href="actions/hapus_data_pembelian.php?id=<?= $data['id_pembelian']; ?>" onclick="return confirm('Apakah anda yakin menghapus data?');" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </p>
-                            </td>
-                        </tr>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">
+                            <?php echo $no++ ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['waktu'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['jumlah'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['merk'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['harga'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <?php echo $data['jenis'] ?>
+                        </td>
+                        <td class="px-6 py-4">
+                            <p>
+                                <a href="actions/hapus_data_pembelian.php?id=<?= $data['id_pembelian']; ?>"
+                                    onclick="return confirm('Apakah anda yakin menghapus data?');"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </p>
+                        </td>
+                    </tr>
                     <?php endwhile ?>
-
-
                 </tbody>
             </table>
         </div>

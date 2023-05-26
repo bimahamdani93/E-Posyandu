@@ -5,9 +5,6 @@ $id = $_GET["id"];
 
 $bidan = query("SELECT * FROM tb_bidan Where id_bidan = $id")[0];
 
-
-
-
 if (isset($_POST['submit'])) {
 
     if (ubah($_POST) == true) {
@@ -55,7 +52,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="mb-6">
                 <label for="umur" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Umur</label>
-                <input value="<?= $bidan["umur"] ?>" type="text" name="umur" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                <input value="<?= $bidan["umur"] ?>" type="number" name="umur" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
             </div>
             <div class="mb-6">
                 <label for="notelp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">No Telepon</label>
@@ -72,7 +69,6 @@ if (isset($_POST['submit'])) {
             <div class="mb-6">
                 <label for="jk" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Jenis Kelamin</label>
                 <select name="jk" class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
-
                     <option value="">
                         Select an option
                     </option>
@@ -84,13 +80,9 @@ if (isset($_POST['submit'])) {
                         echo "<option value='laki-laki'>Laki-laki</option>";
                         echo "<option value='perempuan' selected>Perempuan</option>";
                     }
-
                     ?>
-
                 </select>
             </div>
-
-
             <button type="submit" name="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ubah</button>
         </form>
     </div>

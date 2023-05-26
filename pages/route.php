@@ -77,7 +77,6 @@ if (isset($_GET['url'])) {
             include 'views/table_penjualan.php';
             break;
 
-
         case 'beranda':
             include 'home.php';
             break;

@@ -6,15 +6,12 @@ function tambah($data)
     $id_produk = $data['id_produk'];
     $jumlah = $data['jumlah'];
 
-
     $sql = "INSERT INTO tb_penjualan (id_produk,jumlah) 
     values ('$id_produk','$jumlah')";
     $query = $koneksi->query($sql);
 
-
     return $query;
 }
-
 
 function hapus($id)
 {

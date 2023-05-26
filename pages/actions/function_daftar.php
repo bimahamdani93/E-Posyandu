@@ -8,17 +8,12 @@ function tambah($data)
     $tanggal = $data['tanggal'];
     $nama = $data['nama'];
 
-
-
-
     $sql = "INSERT INTO tb_pendaftaran_imunisasi (id_jadwal,id_anak,id_user) 
     values ('$tanggal','$nama','$id_user')";
     $query = $koneksi->query($sql);
 
-
     return $query;
 }
-
 
 // Read
 function query($query)
@@ -34,9 +29,6 @@ function query($query)
 
     return $rows;
 }
-
-
-
 
 // Delete
 function hapus($id)

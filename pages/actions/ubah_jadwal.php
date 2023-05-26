@@ -3,11 +3,7 @@ require 'function_jadwal.php';
 
 $id = $_GET["id"];
 
-
 $jadwal = query("SELECT * FROM tb_jadwal_imunisasi Where id_jadwal = $id")[0];
-
-
-
 
 if (isset($_POST['submit'])) {
 

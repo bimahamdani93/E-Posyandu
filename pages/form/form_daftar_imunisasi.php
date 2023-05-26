@@ -8,12 +8,12 @@ if (isset($_POST['submit'])) {
         echo "<script>
                     alert('Pendaftaran Berhasil');
                     window.location.href = ('../pages/layoutdashboard.php?url=data-pendaftaran');
-                </script>";
+             </script>";
     } else {
         echo "<script>
                     alert('Input Gagal');
                     window.location.href = ('../pages/layoutdashboard.php?url=form-daftar');
-                </script>";
+             </script>";
     }
 }
 
@@ -23,7 +23,6 @@ $query1 = $koneksi->query($sql1);
 
 $sql2 = "SELECT * FROM tb_anak WHERE id_user = $_SESSION[id_user]";
 $query2 = $koneksi->query($sql2);
-
 
 ?>
 

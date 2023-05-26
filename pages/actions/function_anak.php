@@ -12,15 +12,12 @@ function tambah($data)
     $panjang_badan = $data['panjang_badan'];
     $berat_badan = $data['berat_badan'];
 
-
     $sql = "INSERT INTO tb_anak (id_user,nama,umur,tanggal_lahir,jenis_kelamin,panjang_badan,berat_badan) 
     values ('$id_user','$nama','$umur','$ttl','$jk','$panjang_badan','$berat_badan')";
     $query = $koneksi->query($sql);
 
-
     return $query;
 }
-
 
 // Read
 function query($query)
@@ -36,7 +33,6 @@ function query($query)
 
     return $rows;
 }
-
 
 // Update
 function ubah($data)
@@ -60,7 +56,6 @@ function ubah($data)
     panjang_badan=$panjang_badan,
     berat_badan=$berat_badan
     WHERE id_anak=$id_anak";
-
 
     $query1 = $koneksi->query($sqli);
 

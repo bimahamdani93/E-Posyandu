@@ -23,7 +23,6 @@ $query1 = $koneksi->query($sql1);
 $sql2 = "SELECT * FROM tb_kategori_imunisasi";
 $query2 = $koneksi->query($sql2);
 
-
 ?>
 
 
@@ -48,47 +47,61 @@ $query2 = $koneksi->query($sql2);
         </div>
         <form action="" method="POST">
             <div class="mb-6">
-                <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Bidan</label>
-                <select name="nama" class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
-                    <?php while ($data1 = $query1->fetch_array()) : ?>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <option value="<?= $data1["id_bidan"] ?>">
-                                <?php echo $data1['nama_bidan'] ?>
-                            </option>
-                        </tr>
-                    <?php endwhile ?>
+                <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama
+                    Bidan</label>
+                <select name="nama"
+                    class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    <?php while ($data1 = $query1->fetch_array()): ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <option value="<?=$data1["id_bidan"]?>">
+                            <?php echo $data1['nama_bidan'] ?>
+                        </option>
+                    </tr>
+                    <?php endwhile?>
                 </select>
             </div>
             <div class="mb-6">
-                <label for="kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kategori</label>
-                <select name="kategori" class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
-                    <?php while ($data2 = $query2->fetch_array()) : ?>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <option value="<?= $data2["id_kategori"] ?>">
-                                <?php echo $data2['kategori'] ?>
-                            </option>
-                        </tr>
-                    <?php endwhile ?>
+                <label for="kategori"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kategori</label>
+                <select name="kategori"
+                    class="block w-52 text-gray-700 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500">
+                    <?php while ($data2 = $query2->fetch_array()): ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <option value="<?=$data2["id_kategori"]?>">
+                            <?php echo $data2['kategori'] ?>
+                        </option>
+                    </tr>
+                    <?php endwhile?>
                 </select>
             </div>
             <div class="mb-6">
                 <label for="hari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hari</label>
-                <input type="text" name="hari" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                <input type="text" name="hari"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
             </div>
             <div class="mb-6">
-                <label for="tanggal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tanggal</label>
-                <input type="text" name="tanggal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                <label for="tanggal"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tanggal</label>
+                <input type="text" name="tanggal"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
             </div>
             <div class="mb-6">
                 <label for="jam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Jam</label>
-                <input type="text" name="jam" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                <input type="text" name="jam"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
             </div>
             <div class="mb-6">
                 <label for="kuota" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Kuota</label>
-                <input type="text" name="kuota" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                <input type="text" name="kuota"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required="">
             </div>
 
-            <button type="submit" name="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <button type="submit" name="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
         </form>
     </div>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
